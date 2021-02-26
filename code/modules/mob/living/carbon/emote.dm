@@ -3,22 +3,22 @@
 
 /datum/emote/living/carbon/airguitar
 	key = "airguitar"
-	message = "is strumming the air and headbanging like a safari chimp."
+	message = "изображает игру на гитаре."
 	hands_use_check = TRUE
 
 /datum/emote/living/carbon/blink
 	key = "blink"
 	key_third_person = "blinks"
-	message = "blinks."
+	message = "моргает."
 
 /datum/emote/living/carbon/blink_r
 	key = "blink_r"
-	message = "blinks rapidly."
+	message = "быстро моргает."
 
 /datum/emote/living/carbon/clap
 	key = "clap"
 	key_third_person = "claps"
-	message = "claps."
+	message = "хлопает."
 	muzzle_ignore = TRUE
 	hands_use_check = TRUE
 	emote_type = EMOTE_AUDIBLE
@@ -37,7 +37,7 @@
 /datum/emote/living/carbon/crack
 	key = "crack"
 	key_third_person = "cracks"
-	message = "cracks their knuckles."
+	message = "хрустит пальцами."
 	sound = 'sound/misc/knuckles.ogg'
 	cooldown = 6 SECONDS
 
@@ -48,27 +48,27 @@
 /datum/emote/living/carbon/moan
 	key = "moan"
 	key_third_person = "moans"
-	message = "moans!"
-	message_mime = "appears to moan!"
+	message = "стонет!"
+	message_mime = "беззвучно стонет!"
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/carbon/roll
 	key = "roll"
 	key_third_person = "rolls"
-	message = "rolls."
+	message = "крутится."
 	mob_type_allowed_typecache = list(/mob/living/carbon/alien)
 	hands_use_check = TRUE
 
 /datum/emote/living/carbon/scratch
 	key = "scratch"
 	key_third_person = "scratches"
-	message = "scratches."
+	message = "царапается."
 	mob_type_allowed_typecache = list(/mob/living/carbon/alien)
 	hands_use_check = TRUE
 /datum/emote/living/carbon/sign
 	key = "sign"
 	key_third_person = "signs"
-	message_param = "signs the number %t."
+	message_param = "показывает цифру %t."
 	mob_type_allowed_typecache = list(/mob/living/carbon/alien)
 	hands_use_check = TRUE
 
@@ -80,19 +80,19 @@
 /datum/emote/living/carbon/sign/signal
 	key = "signal"
 	key_third_person = "signals"
-	message_param = "raises %t fingers."
+	message_param = "показывает %t пальцев."
 	mob_type_allowed_typecache = list(/mob/living/carbon/human)
 	hands_use_check = TRUE
 
 /datum/emote/living/carbon/tail
 	key = "tail"
-	message = "waves their tail."
+	message = "взмахивает хвостом."
 	mob_type_allowed_typecache = list(/mob/living/carbon/alien)
 
 /datum/emote/living/carbon/wink
 	key = "wink"
 	key_third_person = "winks"
-	message = "winks."
+	message = "подмигивает."
 
 /datum/emote/living/carbon/circle
 	key = "circle"
@@ -119,10 +119,10 @@
 		return
 	var/obj/item/slapper/N = new(user)
 	if(user.put_in_hands(N))
-		to_chat(user, "<span class='notice'>You ready your slapping hand.</span>")
+		to_chat(user, "<span class='notice'>вы подготавливаете руку для шлепка.</span>")
 	else
 		qdel(N)
-		to_chat(user, "<span class='warning'>You're incapable of slapping in your current state.</span>")
+		to_chat(user, "<span class='warning'>Ваша рука занята.</span>")
 
 /datum/emote/living/carbon/noogie
 	key = "noogie"

@@ -3,17 +3,17 @@
 	desc = "Harsh snowstorms roam the topside of this arctic planet, burying any area unfortunate enough to be in its path."
 	probability = 90
 
-	telegraph_message = "<span class='warning'>Drifting particles of snow begin to dust the surrounding area..</span>"
+	telegraph_message = "<span class='warning'>Погода на ледяных пустошах вокруг станции ухудшается..</span>"
 	telegraph_duration = 300
 	telegraph_overlay = "light_snow"
 
-	weather_message = "<span class='userdanger'><i>Harsh winds pick up as dense snow begins to fall from the sky! Seek shelter!</i></span>"
+	weather_message = "<span class='userdanger'><i>Ветер на ледяных пустошах усиливается! Найдите убежище, если вы находитесь за пределами станции!</i></span>"
 	weather_overlay = "snow_storm"
 	weather_duration_lower = 600
 	weather_duration_upper = 1500
 
 	end_duration = 100
-	end_message = "<span class='boldannounce'>The snowfall dies down, it should be safe to go outside again.</span>"
+	end_message = "<span class='boldannounce'>Снежная буря на ледяных пустошах стихает. Выходить наружу снова безопасно.</span>"
 
 	area_type = /area
 	protect_indoors = TRUE

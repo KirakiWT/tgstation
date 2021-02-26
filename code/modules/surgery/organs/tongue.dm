@@ -76,18 +76,26 @@
 	modifies_speech = TRUE
 
 /obj/item/organ/tongue/lizard/handle_speech(datum/source, list/speech_args)
-	var/static/regex/lizard_hiss = new("s+", "g")
-	var/static/regex/lizard_hiSS = new("S+", "g")
+	var/static/regex/lizard_hiss = new("с+", "g")
+	var/static/regex/lizard_hiSS = new("С+", "g")
+	var/static/regex/lizard_hish = new("ш+", "g")
+	var/static/regex/lizard_hiSH = new("Ш+", "g")
+	var/static/regex/lizard_hishh = new("щ+", "g")
+	var/static/regex/lizard_hiSHH = new("Щ+", "g")
 	var/static/regex/lizard_kss = new(@"(\w)x", "g")
 	var/static/regex/lizard_kSS = new(@"(\w)X", "g")
 	var/static/regex/lizard_ecks = new(@"\bx([\-|r|R]|\b)", "g")
 	var/static/regex/lizard_eckS = new(@"\bX([\-|r|R]|\b)", "g")
 	var/message = speech_args[SPEECH_MESSAGE]
 	if(message[1] != "*")
-		message = lizard_hiss.Replace(message, "sss")
-		message = lizard_hiSS.Replace(message, "SSS")
-		message = lizard_kss.Replace(message, "$1kss")
-		message = lizard_kSS.Replace(message, "$1KSS")
+		message = lizard_hiss.Replace(message, "ссс")
+		message = lizard_hiSS.Replace(message, "Ссссс")
+		message = lizard_hish.Replace(message, "шш")
+		message = lizard_hiSH.Replace(message, "Шшш")
+		message = lizard_hishh.Replace(message, "щщ")
+		message = lizard_hiSHH.Replace(message, "Щщщ")
+		message = lizard_kss.Replace(message, "$1kсс")
+		message = lizard_kSS.Replace(message, "$1KСС")
 		message = lizard_ecks.Replace(message, "ecks$1")
 		message = lizard_eckS.Replace(message, "ECKS$1")
 	speech_args[SPEECH_MESSAGE] = message
@@ -238,8 +246,7 @@
 
 /obj/item/organ/tongue/abductor/examine(mob/M)
 	. = ..()
-	if(HAS_TRAIT(M, TRAIT_ABDUCTOR_TRAINING) || (M.mind && HAS_TRAIT(M.mind, TRAIT_ABDUCTOR_TRAINING)) || isobserver(M))
-		. += "<span class='notice'>It can be attuned to a different channel by using it inhand.</span>"
+	if(HAS_TRAIT(M, TRAIT_ABDUCTOR_TRAINING) || HAS_TRAIT(M.mind, TRAIT_ABDUCTOR_TRAINING) || isobserver(M))
 		if(!mothership)
 			. += "<span class='notice'>It is not attuned to a specific mothership.</span>"
 		else
@@ -379,17 +386,7 @@
 	name = "radula"
 	color = "#96DB00" // TODO proper sprite, rather than recoloured pink tongue
 	desc = "A minutely toothed, chitious ribbon, which as a side effect, makes all snails talk IINNCCRREEDDIIBBLLYY SSLLOOWWLLYY."
-	modifies_speech = TRUE
-
-/obj/item/organ/tongue/snail/handle_speech(datum/source, list/speech_args)
-	var/new_message
-	var/message = speech_args[SPEECH_MESSAGE]
-	for(var/i in 1 to length(message))
-		if(findtext("ABCDEFGHIJKLMNOPWRSTUVWXYZabcdefghijklmnopqrstuvwxyz", message[i])) //Im open to suggestions
-			new_message += message[i] + message[i] + message[i] //aaalllsssooo ooopppeeennn tttooo sssuuuggggggeeessstttiiiooonsss
-		else
-			new_message += message[i]
-	speech_args[SPEECH_MESSAGE] = new_message
+	modifies_speech = FALSE
 
 /obj/item/organ/tongue/ethereal
 	name = "electric discharger"
